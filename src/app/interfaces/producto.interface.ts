@@ -1,5 +1,5 @@
 export interface Producto {
-    categorias: string;
+    categoria: string;
     cod: string;
     titulo: string;
     url: string;

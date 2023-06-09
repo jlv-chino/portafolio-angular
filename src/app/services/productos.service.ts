@@ -10,20 +10,24 @@ export class ProductosService {
   cargando: boolean = true;
   productos: Producto[] = [];
 
-  constructor( private http: HttpClient) { 
+  constructor(private http: HttpClient) {
 
     this.cargarProductos();
 
   }
 
-  private cargarProductos(){
+  private cargarProductos() {
 
     this.http.get('https://angular-portfolio-e3e2a-default-rtdb.firebaseio.com/productos_idx.json')
-        .subscribe((resp: any) => {
-          console.log(resp);
-          //this.productos = resp;
+      .subscribe((resp: any) => {
+        this.productos = resp;
+
+        //Se puede quitar esta función cuando esté en producción
+        setTimeout(() => {
           this.cargando = false;
-        });
+        }, 1000);
+
+      });
 
   }
 }
