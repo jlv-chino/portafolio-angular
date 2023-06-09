@@ -30,4 +30,9 @@ export class ProductosService {
       });
 
   }
+
+  getProducto(id:string){
+    return this.http.get(`https://angular-portfolio-e3e2a-default-rtdb.firebaseio.com/productos/${id}.json`);
+  }
+
 }
